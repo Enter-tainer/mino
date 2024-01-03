@@ -55,6 +55,16 @@
             )
           }
         } else {
+          // operation mino is displayed in lower case
+          place(top + left, 
+            dx: cell-size * j, 
+            dy: cell-size * (rows - 1 - i),
+            rect(
+              width: cell-size,
+              height: cell-size,
+              fill: bg-color
+            )
+          )
           place(top + left, 
             dx: cell-size * j + cell-size * 0.1, 
             dy: cell-size * (rows - 1 - i) + cell-size * 0.1,

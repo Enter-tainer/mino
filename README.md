@@ -7,7 +7,7 @@ Render tetris [fumen](https://harddrop.com/fumen/) in typst!
 
 ````typ
 #import "typst-package/lib.typ": decode-fumen, render-field
-// Uncomment the following line to use the m-jaxon from the official package registry
+// Uncomment the following line to use the mino from the official package registry
 // #import "@preview/mino:0.1.0": decode-fumen, render-field
 #set page(margin: 1.5cm)
 

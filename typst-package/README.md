@@ -21,7 +21,14 @@ Render tetris [fumen](https://harddrop.com/fumen/) in typst!
 
 #for i in range(fumen.len()) {
   let field = fumen.at(i).at("field")
-  [#box(render-field(field, rows: 8, cell-size: 14pt)) #h(2em)]
+  [
+    #box[
+      #render-field(field, rows: 8, cell-size: 13pt) 
+      (#(i+1))
+      #fumen.at(i).comment
+    ]
+    #h(0.5pt)
+  ]
 }
 
 ````

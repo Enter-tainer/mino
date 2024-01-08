@@ -7,6 +7,30 @@
   ]
 ]
 
+= Render Field
+#let custom-field = `
+__________
+___ZSS____
+L__ZZSS___
+LtttZJJJOO
+LLtIIIIJOO
+`.text.trim().split("\n").rev()
+
+#table(columns: (auto, 1fr), stroke: none, align: horizon, gutter: 1em, [#render-field(custom-field, rows: 5, cell-size: 15pt)
+], [
+```typst
+#import "@preview/mino:0.1.0": render-field
+#let custom-field = `
+__________
+___ZSS____
+L__ZZSS___
+LtttZJJJOO
+LLtIIIIJOO
+`.text.trim().split("\n").rev()
+#render-field(custom-field, rows: 5, cell-size: 15pt)
+```
+])
+= Render Fumen
 ```typ
 #import "@preview/mino:0.1.0": decode-fumen, render-field
 
@@ -26,7 +50,7 @@
 
 #let fumen = decode-fumen("v115@vhPJHYaAkeEfEXoC+BlvlzByEEfE03k2AlP5ABwfAA?A+rQAAqsBsqBvtBTpBVhQeAlvlzByEEfE03k2AlP5ABwvDf?E33ZBBlfbOBV5AAAOfQeAlvlzByEEfE03+2BlP5ABwvDfEV?5k2AlPJVBjzAAA6WQAAzdBpeB0XBXUBFlQnAlvlzByEEfE0?3+2BlP5ABwvDfEXhWEBUYPNBkkuRA1GCLBUupAAdqQnAlvl?zByEEfE038UBlP5ABwvDfEXhWEBUYPNBkkuRA1GCLBU+rAA?AAPAA")
 
-#for i in range(fumen.len()) {
+#for i in range(8) {
   let field = fumen.at(i).at("field")
   [
     #box[

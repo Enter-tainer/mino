@@ -100,3 +100,7 @@ The pages, of type `Array<{ field: Array<string, 20>, comment: string }>`.
 )
 ```
 * `shadow-color`: The shadow color for the field, default to `#6f6f6f17`
+
+### Credit
+
+The styles and color scheme are inspired by four.lol

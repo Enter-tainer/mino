@@ -3,36 +3,34 @@
 #set text(lang: "zh", region: "cn", font: ("New Computer Modern", "Source Han Sans SC"))
 #align(center)[
   #text(size: 25pt)[
-    `@preview/mino:0.1.0`
+    `@preview/mino:0.1.1`
   ]
 ]
 
 = Render Field
 #let custom-field = `
-__________
-___ZSS____
-L__ZZSS___
+___ZSS
+L__ZZSS
 LtttZJJJOO
 LLtIIIIJOO
-`.text.trim().split("\n").rev()
+`
 
 #table(columns: (auto, 1fr), stroke: none, align: horizon, gutter: 1em, [#render-field(custom-field, rows: 5, cell-size: 15pt)
 ], [
 ```typst
-#import "@preview/mino:0.1.0": render-field
+#import "@preview/mino:0.1.1": render-field
 #let custom-field = `
-__________
-___ZSS____
-L__ZZSS___
+___ZSS
+L__ZZSS
 LtttZJJJOO
 LLtIIIIJOO
-`.text.trim().split("\n").rev()
+`
 #render-field(custom-field, rows: 5, cell-size: 15pt)
 ```
 ])
 = Render Fumen
 ```typ
-#import "@preview/mino:0.1.0": decode-fumen, render-field
+#import "@preview/mino:0.1.1": decode-fumen, render-field
 
 #let fumen = decode-fumen("v115@...")
 #for i in range(fumen.len()) {

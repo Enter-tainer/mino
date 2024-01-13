@@ -8,7 +8,7 @@ Render tetris [fumen](https://harddrop.com/fumen/) in typst!
 ````typ
 #import "typst-package/lib.typ": decode-fumen, render-field
 // Uncomment the following line to use the mino from the official package registry
-// #import "@preview/mino:0.1.0": decode-fumen, render-field
+// #import "@preview/mino:0.1.1": decode-fumen, render-field
 #set page(margin: 1.5cm)
 
 #align(center)[
@@ -100,3 +100,7 @@ The pages, of type `Array<{ field: Array<string, 20>, comment: string }>`.
 )
 ```
 * `shadow-color`: The shadow color for the field, default to `#6f6f6f17`
+
+### Credit
+
+The styles and color scheme are inspired by four.lol

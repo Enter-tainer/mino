@@ -23,15 +23,35 @@
 
 #let is-upper(c) = upper(c) == c
 
+#let process-text(string-field) = {
+  string-field.trim().split("\n").rev()
+}
+
+#let get-field(field) = {
+  if type(field) == array {
+    field
+  } else if type(field) == str {
+    process-text(field)
+  } else if type(field) == content {
+    process-text(field.text)
+  } else {
+    panic("unknown type of field")
+  }
+}
+
 #let render-field(field, rows: 20, cell-size: 10pt, bg-color: rgb("#f3f3ed"), stroke: none, radius: auto, shadow: true, highlight: true, color-data: default-color, highlight-color-data: default-highlight-color, shadow-color: rgb("#6f6f6f17")) = {
+  let field = get-field(field)
   let actual-radius = if radius == auto { cell-size / 4 } else { radius }
   let highlight-height = cell-size / 5
   let shadow-offset-vertical = cell-size * 0.4
   let shadow-offset-horizontal = cell-size / 4
   block(width: 10 * cell-size, height: rows * cell-size, inset: 0pt, stroke: stroke, radius: actual-radius, clip: true, fill: bg-color, breakable: false, {
+    let max-row = calc.min(rows, field.len())
     if shadow {
-      for i in range(rows) {
-        for j in range(10) {
+      for i in range(max-row) {
+        let cells = field.at(i).len()
+        let loop-max = calc.min(10, cells)
+        for j in range(loop-max) {
           if field.at(i).codepoints().at(j) == "_" {
             continue
           }
@@ -50,8 +70,10 @@
         }
       }
     }
-    for i in range(rows) {
-      for j in range(10) {
+    for i in range(max-row) {
+      let cells = field.at(i).len()
+      let loop-max = calc.min(10, cells)
+      for j in range(loop-max) {
         if field.at(i).codepoints().at(j) == "_" {
           continue
         }

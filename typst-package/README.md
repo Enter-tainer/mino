@@ -74,6 +74,7 @@ The pages, of type `Array<{ field: Array<string, 20>, comment: string }>`.
 * `shadow`: Whether to show shadow for cells, default to `true`
 * `highlight`: Whether to highlight cells, default to `true`
 * `color-data`: The color data for the field, default to `default-color-data`: 
+* `overdraw`: (default, 5) Draw each cell multiple times to avoid thin lines between cells. See https://github.com/linebender/vello/issues/49
 ```typst
 #let default-color = (
   "Z": rgb("#ef624d"),

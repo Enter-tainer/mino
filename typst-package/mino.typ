@@ -1,4 +1,4 @@
-#import "@preview/jogs:0.2.1": compile-js, call-js-function
+#import "@preview/jogs:0.2.3": compile-js, call-js-function
 
 
 #let mj-src = read("./mino.js")
